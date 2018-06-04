@@ -25,7 +25,7 @@ public class DateUtil {
     /**
      * 获取YMMDDHHMMSS格式时间戳
      *
-     * @param date
+     * @param date 时间
      * @return
      */
     public static String getTimestamp(Date date) {
