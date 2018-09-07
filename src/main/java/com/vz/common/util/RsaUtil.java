@@ -1,4 +1,4 @@
-package com.victorzhang.common.util;
+package com.vz.common.util;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -7,8 +7,6 @@ import java.security.interfaces.RSAPublicKey;
 
 import javax.crypto.Cipher;
 
-import static com.victorzhang.common.constant.EncryptConstant.RSA;
-
 /**
  * Rsa非对称加密
  *
@@ -16,13 +14,15 @@ import static com.victorzhang.common.constant.EncryptConstant.RSA;
  * @email zhangwei@cetiti.com
  * @date 2018-06-04 15:41:19
  */
-public class RsaUtil {
+public final class RsaUtil {
+
+    private static final String RSA = "RSA";
 
     /**
      * 初始化密钥
      *
      * @return 密钥对
-     * @throws Exception
+     * @throws Exception 抛出异常信息
      */
     public static KeyPair initKey() throws Exception {
         //密钥对生成器
@@ -62,7 +62,7 @@ public class RsaUtil {
      * @param source    待加密字节数组
      * @param publicKey 公钥
      * @return Rsa加密字节数组
-     * @throws Exception
+     * @throws Exception 抛出异常信息
      */
     public static byte[] encryptRsa(byte[] source, RSAPublicKey publicKey) throws Exception {
         //Cipher指定算法
@@ -78,7 +78,7 @@ public class RsaUtil {
      * @param source     待解密字节数组
      * @param privateKey 私钥
      * @return Rsa解密字节数组
-     * @throws Exception
+     * @throws Exception 抛出异常信息
      */
     public static byte[] decryptRsa(byte[] source, RSAPrivateKey privateKey) throws Exception {
         //Cihper指定算法

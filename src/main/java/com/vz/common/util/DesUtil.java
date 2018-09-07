@@ -1,11 +1,9 @@
-package com.victorzhang.common.util;
+package com.vz.common.util;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-
-import static com.victorzhang.common.constant.EncryptConstant.DES;
 
 /**
  * DES对称加密
@@ -14,13 +12,14 @@ import static com.victorzhang.common.constant.EncryptConstant.DES;
  * @email zhangwei@cetiti.com
  * @date 2018-06-04 15:19:16
  */
-public class DesUtil {
+public final class DesUtil {
 
+    private static final String DES = "DES";
     /**
      * 生成密钥
      *
      * @return 密钥
-     * @throws Exception
+     * @throws Exception 抛出异常信息
      */
     public static byte[] initKey() throws Exception {
         //密钥生成器
@@ -34,10 +33,11 @@ public class DesUtil {
 
     /**
      * DES加密
+     *
      * @param source 待加密字节数组
-     * @param key 密钥
+     * @param key    密钥
      * @return DES加密字节数组
-     * @throws Exception
+     * @throws Exception 抛出异常信息
      */
     public static byte[] encryptDes(byte[] source, byte[] key) throws Exception {
         //获取密钥
@@ -51,10 +51,11 @@ public class DesUtil {
 
     /**
      * DES解密
+     *
      * @param source 待解密字节数组
-     * @param key 密钥
+     * @param key    密钥
      * @return DES解密字节数组
-     * @throws Exception
+     * @throws Exception 抛出异常信息
      */
     public static byte[] decryptDes(byte[] source, byte[] key) throws Exception {
         //获取密钥

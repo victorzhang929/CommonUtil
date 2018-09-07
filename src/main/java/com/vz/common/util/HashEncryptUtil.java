@@ -1,8 +1,8 @@
-package com.victorzhang.common.util;
+package com.vz.common.util;
 
 import java.security.MessageDigest;
 
-import static com.victorzhang.common.constant.EncryptConstant.UTF_8;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * HASH加密解密工具(主流MD5\SHA1)
@@ -11,13 +11,13 @@ import static com.victorzhang.common.constant.EncryptConstant.UTF_8;
  * @email zhangwei@cetiti.com
  * @date 2018-06-04 14:46:22
  */
-public class HashEncryptUtil {
+public final class HashEncryptUtil {
 
     /**
      * bytes转成十六进制
      *
      * @param bytes 字节数组
-     * @return
+     * @return 十六进制字符串
      */
     private static String bytes2hex(byte[] bytes) {
         StringBuffer hex = new StringBuffer();
@@ -47,7 +47,7 @@ public class HashEncryptUtil {
      * 16进制转为字节数组
      *
      * @param hex 16进制数
-     * @return
+     * @return 十六机制字节数组
      */
     private static byte[] hex2bytes(String hex) {
         int length = hex.length();
@@ -75,14 +75,14 @@ public class HashEncryptUtil {
     /**
      * HASH加密
      *
-     * @param content 待加密内容
+     * @param content   待加密内容
      * @param algorithm 加密算法（MD5,SHA-1）
      * @return 加密字符串
-     * @throws Exception
+     * @throws Exception 抛出异常信息
      */
     public static String encrypt(String algorithm, String content) throws Exception {
         MessageDigest md5 = MessageDigest.getInstance(algorithm);
-        md5.update(content.getBytes(UTF_8));
+        md5.update(content.getBytes("UTF-8"));
         byte[] bytes = md5.digest();
         return bytes2hex(bytes);
     }

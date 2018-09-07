@@ -1,4 +1,4 @@
-package com.victorzhang.common.util;
+package com.vz.common.util;
 
 import java.security.MessageDigest;
 import java.security.PrivateKey;
@@ -8,8 +8,6 @@ import java.util.Arrays;
 
 import javax.crypto.Cipher;
 
-import static com.victorzhang.common.constant.EncryptConstant.RSA;
-
 /**
  * Md5WithRsa数字签名
  *
@@ -17,7 +15,9 @@ import static com.victorzhang.common.constant.EncryptConstant.RSA;
  * @email zhangwei@cetiti.com
  * @date 2018-06-04 16:37:29
  */
-public class HashSignatureUtil {
+public final class HashSignatureUtil {
+
+    private static final String RSA = "RSA";
 
     /**
      * 数字签名
@@ -26,7 +26,7 @@ public class HashSignatureUtil {
      * @param content    待加密内容
      * @param privateKey 私钥
      * @return 数字签名字节数组
-     * @throws Exception
+     * @throws Exception 抛出异常信息
      */
     public static byte[] sign(String algorithm, byte[] content, PrivateKey privateKey) throws Exception {
         MessageDigest md5 = MessageDigest.getInstance(algorithm);
@@ -46,8 +46,8 @@ public class HashSignatureUtil {
      * @param content   待解密内容
      * @param sign      数字签名内容
      * @param publicKey 公钥
-     * @return
-     * @throws Exception
+     * @return 验证是否成功
+     * @throws Exception 抛出异常信息
      */
     public static boolean verify(String algorithm, byte[] content, byte[] sign, PublicKey publicKey) throws Exception {
         MessageDigest md5 = MessageDigest.getInstance(algorithm);
@@ -72,7 +72,7 @@ public class HashSignatureUtil {
      * @param content    待签名内容
      * @param privateKey 私钥
      * @return 数字签名字节数组
-     * @throws Exception
+     * @throws Exception 抛出异常信息
      */
     public static byte[] signWithSignature(String algorithm, byte[] content, PrivateKey privateKey) throws Exception {
         //指定签名算法
@@ -91,7 +91,7 @@ public class HashSignatureUtil {
      * @param sign      数字签名标识
      * @param publicKey 公钥
      * @return 验证结果（True/False）
-     * @throws Exception
+     * @throws Exception 抛出异常信息
      */
     public static boolean verifyWithSignature(String algorithm, byte[] content, byte[] sign, PublicKey publicKey) throws Exception {
         //指定验证算法

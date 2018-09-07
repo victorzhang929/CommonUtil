@@ -1,4 +1,4 @@
-package com.victorzhang.common.util;
+package com.vz.common.util;
 
 import java.util.Date;
 
@@ -12,7 +12,7 @@ import org.apache.commons.lang3.time.DateFormatUtils;
  * @email zhangwei@cetiti.com
  * @date 2018-05-21 11:53:01
  */
-public class DateUtil {
+public final class DateUtil {
     /**
      * 获取YMMDDHHMMSS格式时间戳
      *
@@ -26,7 +26,7 @@ public class DateUtil {
      * 获取YMMDDHHMMSS格式时间戳
      *
      * @param date 时间
-     * @return
+     * @return 返回相应格式时间字符串
      */
     public static String getTimestamp(Date date) {
         return formatDate(date, "yyyyMMddHHmmss");
