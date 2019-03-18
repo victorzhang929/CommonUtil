@@ -6,17 +6,15 @@
 
     <groupId>com.vz</groupId>
     <artifactId>vz-common-util</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <itextpdf.version>5.5.13</itextpdf.version>
         <lombok.version>1.16.20</lombok.version>
         <servlet.api.version>2.5</servlet.api.version>
         <common.lang3.version>3.7</common.lang3.version>
-        <jxl.version>2.6.10</jxl.version>
     </properties>
 
     <dependencies>
