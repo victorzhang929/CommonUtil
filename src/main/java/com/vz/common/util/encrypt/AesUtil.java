@@ -1,23 +1,25 @@
-package com.vz.common.util;
+package com.vz.common.util.encrypt;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * Aes对称加密
- *
  * @author zhangwei
  * @email zhangwei@cetiti.com
  * @date 2018-06-04 15:32:12
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class AesUtil {
 
     private static final String AES = "AES";
     /**
      * 初始化密钥生成器
-     *
      * @return 密钥
      * @throws Exception 抛出异常信息
      */
@@ -33,7 +35,6 @@ public final class AesUtil {
 
     /**
      * Aes 加密
-     *
      * @param source 待加密字节数组
      * @param key    密钥
      * @return Aes加密后字节数组
@@ -51,7 +52,6 @@ public final class AesUtil {
 
     /**
      * Aes 解密
-     *
      * @param source 待解密字节数组
      * @param key    密钥
      * @return Aes解密后字节数组

@@ -1,4 +1,4 @@
-package com.vz.common.util;
+package com.vz.common.util.encrypt;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -7,20 +7,22 @@ import java.security.interfaces.RSAPublicKey;
 
 import javax.crypto.Cipher;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * Rsa非对称加密
- *
  * @author zhangwei
  * @email zhangwei@cetiti.com
  * @date 2018-06-04 15:41:19
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class RsaUtil {
 
     private static final String RSA = "RSA";
 
     /**
      * 初始化密钥
-     *
      * @return 密钥对
      * @throws Exception 抛出异常信息
      */
@@ -34,7 +36,6 @@ public final class RsaUtil {
 
     /**
      * 获取公钥
-     *
      * @param keyPair 密钥对
      * @return 公钥
      */
@@ -46,7 +47,6 @@ public final class RsaUtil {
 
     /**
      * 获取私钥
-     *
      * @param keyPair 密钥对
      * @return 私钥
      */
@@ -58,7 +58,6 @@ public final class RsaUtil {
 
     /**
      * Rsa 加密
-     *
      * @param source    待加密字节数组
      * @param publicKey 公钥
      * @return Rsa加密字节数组
@@ -74,7 +73,6 @@ public final class RsaUtil {
 
     /**
      * Rsa 解密
-     *
      * @param source     待解密字节数组
      * @param privateKey 私钥
      * @return Rsa解密字节数组

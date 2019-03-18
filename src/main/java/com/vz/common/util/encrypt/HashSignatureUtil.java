@@ -1,4 +1,4 @@
-package com.vz.common.util;
+package com.vz.common.util.encrypt;
 
 import java.security.MessageDigest;
 import java.security.PrivateKey;
@@ -8,20 +8,22 @@ import java.util.Arrays;
 
 import javax.crypto.Cipher;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * Md5WithRsa数字签名
- *
  * @author zhangwei
  * @email zhangwei@cetiti.com
  * @date 2018-06-04 16:37:29
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class HashSignatureUtil {
 
     private static final String RSA = "RSA";
 
     /**
      * 数字签名
-     *
      * @param algorithm  Hash加密算法（MD5/SHA1）
      * @param content    待加密内容
      * @param privateKey 私钥
@@ -41,7 +43,6 @@ public final class HashSignatureUtil {
 
     /**
      * 验证数字签名
-     *
      * @param algorithm Hash加密算法（MD5/SHA1）
      * @param content   待解密内容
      * @param sign      数字签名内容
@@ -67,7 +68,6 @@ public final class HashSignatureUtil {
 
     /**
      * 数字签名
-     *
      * @param algorithm  签名算法（MD5withRSA/SHA1withRSA）
      * @param content    待签名内容
      * @param privateKey 私钥
@@ -85,7 +85,6 @@ public final class HashSignatureUtil {
 
     /**
      * 数字签名验证
-     *
      * @param algorithm 签名算法（MD5withRSA/SHA1withRSA）
      * @param content   待验证内容
      * @param sign      数字签名标识

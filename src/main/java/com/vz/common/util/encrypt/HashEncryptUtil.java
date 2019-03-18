@@ -1,21 +1,21 @@
-package com.vz.common.util;
+package com.vz.common.util.encrypt;
 
 import java.security.MessageDigest;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
  * HASH加密解密工具(主流MD5\SHA1)
- *
  * @author zhangwei
  * @email zhangwei@cetiti.com
  * @date 2018-06-04 14:46:22
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class HashEncryptUtil {
 
     /**
      * bytes转成十六进制
-     *
      * @param bytes 字节数组
      * @return 十六进制字符串
      */
@@ -45,7 +45,6 @@ public final class HashEncryptUtil {
 
     /**
      * 16进制转为字节数组
-     *
      * @param hex 16进制数
      * @return 十六机制字节数组
      */
@@ -74,7 +73,6 @@ public final class HashEncryptUtil {
 
     /**
      * HASH加密
-     *
      * @param content   待加密内容
      * @param algorithm 加密算法（MD5,SHA-1）
      * @return 加密字符串

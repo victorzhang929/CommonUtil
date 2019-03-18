@@ -1,23 +1,25 @@
-package com.vz.common.util;
+package com.vz.common.util.encrypt;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * DES对称加密
- *
  * @author zhangwei
  * @email zhangwei@cetiti.com
  * @date 2018-06-04 15:19:16
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DesUtil {
 
     private static final String DES = "DES";
     /**
      * 生成密钥
-     *
      * @return 密钥
      * @throws Exception 抛出异常信息
      */
@@ -33,7 +35,6 @@ public final class DesUtil {
 
     /**
      * DES加密
-     *
      * @param source 待加密字节数组
      * @param key    密钥
      * @return DES加密字节数组
@@ -51,7 +52,6 @@ public final class DesUtil {
 
     /**
      * DES解密
-     *
      * @param source 待解密字节数组
      * @param key    密钥
      * @return DES解密字节数组
