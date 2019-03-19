@@ -1,7 +1,13 @@
 package com.vz.common.util.encrypt;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -21,9 +27,9 @@ public final class AesUtil {
     /**
      * 初始化密钥生成器
      * @return 密钥
-     * @throws Exception 抛出异常信息
+     * @throws NoSuchAlgorithmException 找不到该加密算法异常
      */
-    public static byte[] initKey() throws Exception {
+    public static byte[] initKey() throws NoSuchAlgorithmException {
         //密钥生成器
         KeyGenerator keyGenerator = KeyGenerator.getInstance(AES);
         //初始化密钥生成器
@@ -38,9 +44,14 @@ public final class AesUtil {
      * @param source 待加密字节数组
      * @param key    密钥
      * @return Aes加密后字节数组
-     * @throws Exception 抛出异常信息
+     * @throws NoSuchAlgorithmException 找不到该加密算法
+     * @throws NoSuchPaddingException 找不到加密长度
+     * @throws InvalidKeyException 密钥不可用
+     * @throws IllegalBlockSizeException 非法代码块大小
+     * @throws BadPaddingException 代码块错误
      */
-    public static byte[] encryptAes(byte[] source, byte[] key) throws Exception {
+    public static byte[] encrypt(byte[] source, byte[] key) throws NoSuchAlgorithmException, NoSuchPaddingException,
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         //恢复密钥
         SecretKey secretKey = new SecretKeySpec(key, AES);
         //Cipher指定算法
@@ -53,11 +64,16 @@ public final class AesUtil {
     /**
      * Aes 解密
      * @param source 待解密字节数组
-     * @param key    密钥
+     * @param key 密钥
      * @return Aes解密后字节数组
-     * @throws Exception 抛出异常信息
+     * @throws NoSuchAlgorithmException 找不到该加密算法
+     * @throws NoSuchPaddingException 找不到加密长度
+     * @throws InvalidKeyException 密钥不可用
+     * @throws IllegalBlockSizeException 非法代码块大小
+     * @throws BadPaddingException 代码块错误
      */
-    public static byte[] decryptAes(byte[] source, byte[] key) throws Exception {
+    public static byte[] decrypt(byte[] source, byte[] key) throws NoSuchAlgorithmException, NoSuchPaddingException,
+            InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         //恢复密钥
         SecretKey secretKey = new SecretKeySpec(key, AES);
         //Cipher指定算法
