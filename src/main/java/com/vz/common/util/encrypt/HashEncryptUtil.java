@@ -1,6 +1,8 @@
 package com.vz.common.util.encrypt;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -76,11 +78,11 @@ public final class HashEncryptUtil {
      * @param content   待加密内容
      * @param algorithm 加密算法（MD5,SHA-1）
      * @return 加密字符串
-     * @throws Exception 抛出异常信息
+     * @throws NoSuchAlgorithmException 未找到该加密算法
      */
-    public static String encrypt(String algorithm, String content) throws Exception {
+    public static String encrypt(String algorithm, String content) throws NoSuchAlgorithmException {
         MessageDigest md5 = MessageDigest.getInstance(algorithm);
-        md5.update(content.getBytes("UTF-8"));
+        md5.update(content.getBytes(StandardCharsets.UTF_8));
         byte[] bytes = md5.digest();
         return bytes2hex(bytes);
     }
