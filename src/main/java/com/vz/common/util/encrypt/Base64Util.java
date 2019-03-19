@@ -1,5 +1,7 @@
 package com.vz.common.util.encrypt;
 
+import java.io.IOException;
+
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import sun.misc.BASE64Decoder;
@@ -19,7 +21,7 @@ public final class Base64Util {
      * @param data 待加密字节数组
      * @return BASE64加密字符串
      */
-    public static String base64Encrypt(byte[] data) {
+    public static String encrypt(byte[] data) {
         return new BASE64Encoder().encode(data);
     }
 
@@ -27,9 +29,9 @@ public final class Base64Util {
      * BASE64 解密
      * @param data 待解密字符串
      * @return BASE64解密字符串
-     * @throws Exception
+     * @throws IOException 流异常
      */
-    public static String base64Decrypt(String data) throws Exception {
+    public static String decrypt(String data) throws IOException {
         byte[] resultBytes = new BASE64Decoder().decodeBuffer(data);
         return new String(resultBytes);
     }
